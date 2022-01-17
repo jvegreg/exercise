@@ -15,6 +15,15 @@ class GetLinks():
         for link in links:
             print(link)
 
+    def _load_cache(self):
+        from .linker import load_cache, purge_cache
+        self.cache = load_cache()
+        purge_cache(self.cache)
+
+    def _save_cache(self):
+        from .linker import save_cache
+        save_cache(self.cache)
+
     def all(self, url: str):
         """Shows all links from a webpage.
 
@@ -24,7 +33,9 @@ class GetLinks():
             Webpage's url
         """
         from .linker import get_links
-        self._show_links(get_links(url))
+        self._load_cache()
+        self._show_links(get_links(url, cache=self.cache))
+        self._save_cache()
 
     def http(self, url: str):
         """Show http[s] links from a given webpage
@@ -35,7 +46,9 @@ class GetLinks():
             Webpage's url
         """
         from .linker import get_http_links
-        self._show_links(get_http_links(url))
+        self._load_cache()
+        self._show_links(get_http_links(url, cache=self.cache))
+        self._save_cache()
 
     def ftp(self, url: str):
         """Shows ftp links from a webpage.
@@ -46,7 +59,9 @@ class GetLinks():
             Webpage's url
         """
         from .linker import get_ftp_links
-        self._show_links(get_ftp_links(url))
+        self._load_cache()
+        self._show_links(get_ftp_links(url, cache=self.cache))
+        self._save_cache()
 
     def startserver(self):
         """Start online server

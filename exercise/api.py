@@ -1,9 +1,26 @@
 """Tools for getting links from a given webpage"""
 from fastapi import FastAPI
+from fastapi_utils.tasks import repeat_every
 
 from . import linker
 
 app = FastAPI()
+
+
+@app.on_event('startup')
+async def startup():
+    app.links_cache = linker.load_cache()
+    linker.purge_cache(app.links_cache)
+
+
+@repeat_every(seconds=60 * 15)
+async def purge_cache():
+    linker.purge_cache(app.links_cache)
+
+
+@app.on_event('shutdown')
+async def shutdown():
+    linker.save_cache(app.links_cache)
 
 
 @app.get("/get_links")

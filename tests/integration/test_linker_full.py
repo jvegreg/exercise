@@ -25,7 +25,6 @@ LINKS_TO_CHECK = [
 @pytest.mark.parametrize(('url', 'expected'), LINKS_TO_CHECK)
 def test_get_links(url, expected):
     links = linker.get_links(url)
-    print(links)
     for link_expected in expected:
         assert link_expected in links
 
