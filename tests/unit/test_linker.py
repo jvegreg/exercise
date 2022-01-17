@@ -2,6 +2,7 @@
 """Tests for `exercise` package."""
 
 from datetime import datetime, timedelta
+
 import mock
 import pytest
 

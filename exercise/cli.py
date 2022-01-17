@@ -25,7 +25,7 @@ class GetLinks():
         save_cache(self.cache)
 
     def all(self, url: str):
-        """Shows all links from a webpage.
+        """Show all links from a webpage.
 
         Parameters
         ----------
@@ -38,7 +38,7 @@ class GetLinks():
         self._save_cache()
 
     def http(self, url: str):
-        """Show http[s] links from a given webpage
+        """Show http[s] links from a given webpage.
 
         Parameters
         ----------
@@ -51,7 +51,7 @@ class GetLinks():
         self._save_cache()
 
     def ftp(self, url: str):
-        """Shows ftp links from a webpage.
+        """Show ftp links from a webpage.
 
         Parameters
         ----------
@@ -64,8 +64,7 @@ class GetLinks():
         self._save_cache()
 
     def startserver(self):
-        """Start online server
-        """
+        """Start online server."""
         import uvicorn
         uvicorn.run('exercise.api:app', reload=True)
 

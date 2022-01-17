@@ -73,7 +73,7 @@ def purge_cache(cache):
 
 
 def get_http_links(url: str, cache: dict = None):
-    """Get http[s] links from a given webpage
+    """Get http[s] links from a given webpage.
 
     Parameters
     ----------
@@ -89,7 +89,7 @@ def get_http_links(url: str, cache: dict = None):
 
 
 def get_ftp_links(url: str, cache: dict = None):
-    """Get ftp links from a given webpage
+    """Get ftp links from a given webpage.
 
     Parameters
     ----------
@@ -109,7 +109,7 @@ def get_links(
     link_type: str = None,
     cache: dict = None,
 ):
-    """Get all links from a given webpage
+    """Get all links from a given webpage.
 
     Parameters
     ----------
