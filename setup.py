@@ -10,7 +10,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'beautifulsoup4', 'fastapi', 'fastapi-utils', 'fire', 'requests', 'uvicorn'
+    'beautifulsoup4', 'fastapi', 'fastapi-utils', 'fire', 'requests', 'uvicorn', 'pyyaml'
 ]
 
 test_requirements = [
